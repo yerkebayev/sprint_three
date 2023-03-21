@@ -29,18 +29,7 @@ function cnt(amount) {
 const convertedKZT = Math.floor(amount / exchangeRates[fromCurrency]["KZT"]);
 const convertedUSD = Math.floor(amount / exchangeRates[fromCurrency]["USD"]);
 const convertedEUR = Math.floor(amount / exchangeRates[fromCurrency]["EUR"]);
-      if(fromCurrency === "KZT") {
-        dollar.textContent = convertedUSD;
-        euro.textContent = convertedEUR;
-        tenge.textContent = "---";
-      } else if(fromCurrency === "USD") {
-        tenge.textContent = convertedKZT;
-        euro.textContent = convertedEUR;
-        dollar.textContent = "---";
-      } else {
-        tenge.textContent = convertedKZT;
-        dollar.textContent = convertedUSD;
-        euro.textContent = "---";
-      }
-  }
-
+dollar.textContent = fromCurrency != "USD" ? convertedUSD : "---"
+tenge.textContent = fromCurrency != "KZT" ? convertedKZT : "---"
+euro.textContent = fromCurrency != "EUR" ? convertedEUR : "---"
+}
